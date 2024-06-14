@@ -99,5 +99,22 @@ public class QuizServiceTests {
 		Assert.isTrue(res.getStatusCode() == 200,"create test false!!!");
 	}
 	
+	
+	@Test
+	public void createNameErrorTest() {
+		List<Question>questionList =new ArrayList<>();
+		questionList.add(new Question(1,"°·±dÀ\","ªQ¨Á½Þ,¬µ½Þ±Æ,·Î³½,¯NÂû»L",//
+		OptionType.SINGLE_CHOICE.getType(),true));
+		questionList.add(new Question(2,"¤¦¤¦","1¸¹À\,2¸¹À\,3¸¹À\,4¸¹À\",//
+				OptionType.SINGLE_CHOICE.getType(),true));
+		questionList.add(new Question(3,"ª£¶º","½Þ¦×ª£¶º,®üÂAª£¶º,¤z¨©°¨¹aÁ¦(±À),ºî¦Xª£¶º",//
+				OptionType.SINGLE_CHOICE.getType(),true));
+		CreateOrUpdateReq req = new CreateOrUpdateReq("","¤ÈÀ\¦YÔ£?",LocalDate.of(2024, 06, 01 ),//
+				LocalDate.of(2024, 06, 01 ),questionList,true);
+		BasicRes res = quizService.createOrUpdate(req);
+		Assert.isTrue(res.getMassage().equalsIgnoreCase("Param name error"),"create test false!!!");
+		System.out.println("==================================================================");
+	}
+	
 
 }
