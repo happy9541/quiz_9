@@ -101,7 +101,7 @@ public class QuizServiceTests {
 	
 	
 	@Test
-	public void createNameErrorTest() {
+	public void createNameErrorTest2() {
 		List<Question>questionList =new ArrayList<>();
 		questionList.add(new Question(1,"°·±dÀ\","ªQ¨Á½Þ,¬µ½Þ±Æ,·Î³½,¯NÂû»L",//
 		OptionType.SINGLE_CHOICE.getType(),true));
